@@ -1,0 +1,556 @@
+{
+  "categories": [
+    {
+      "id": "enhancement",
+      "name": "Enhancement",
+      "entries": [
+        {
+          "id": "critical-up",
+          "name": "Critical Up (X)",
+          "icon": "assets/critical-up.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>While a character is under the effect of <strong>Critical Up (X)</strong>, they reduce the value required to score a critical by X when making ability checks. <strong>Critical Up (X)</strong> enhancements can be stacked.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "drain",
+          "name": "Drain (X)",
+          "icon": "assets/drain.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>While a character is under the effect of <strong>Drain (X)</strong>, their abilities restore X HP each time they deal damage. When using abilities that affect multiple targets or deal multiple instances of damage, HP is recovered for each target damaged or each instance of damage dealt. <strong>Drain</strong> cannot stack, and only the highest <strong>Drain</strong> is resolved when damage is dealt. <strong>Drain</strong> is removed at the end of the character’s turn.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "revivify",
+          "name": "Revivify (X)",
+          "icon": "assets/revivify.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>While a character is under the effect of <strong>Revifify (X)</strong>, they recover X HP at the end of the [Adventurer Step] or [Enemy Step], as determined by their standing relative to the player characters.</p><p><strong>Revifify </strong>cannot stack, and only the highest <strong>Revifify</strong> is resolved each round. Should multiple effects need to be resolved simultaneously, the adventurers may decide the order in which to do so.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "transcendent",
+          "name": "Transcendent",
+          "icon": "assets/transcendent.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>While a character is under the effect of <strong>Transcendent</strong>, they are immune to damage and enfeeblements inflicted by enemy abilities, traits, and encounter mechanics. <strong>Transcendent</strong> is removed at the start of the character's turn, or when the character uses an ability.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "x-resistance",
+          "name": "X Resistance (Y)",
+          "icon": "assets/resistance.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p><strong>X Resistance (Y)</strong> is a temporary trait that prevents the user from being afflicted with the specified enfeeblement. When this character is afflicted with the X enfeeblement, that enfeeblement is immediately removed.</p><p>This trait is removed after being resolved Y times.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "x-ready",
+          "name": "X Ready",
+          "icon": "assets/ready.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>While a character is under the effect of <strong>X Ready</strong>, they may use an ability that requires them to be under the effect of this enhancement. <strong>X Ready</strong> is removed after the ability is used.</p>"
+            ],
+            "lists": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "enfeeblements",
+      "name": "Enfeeblements",
+      "entries": [
+        {
+          "id": "bind",
+          "name": "Bind",
+          "icon": "assets/bind.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+              [
+                "While <strong>Bound</strong>, small and medium characters' <strong><blue>Speed</blue></strong> falls to 0, while larger characters' <strong><blue>Speed</blue></strong> is reduced by 2.",
+                "Characters receive one advantage die when making ability checks targeting a <strong>Bound</strong> enemy.",
+                "<strong>Bind</strong> is removed after a period of time specified by the effect that inflicted it elapses."
+              ]
+            ]
+          }
+        },
+        {
+          "id": "blind",
+          "name": "Blind",
+          "icon": "assets/blind.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Blinded</strong> character cannot see and automatically fails checks that rely entirely on vision. Ability checks made when using abilities that target enemies or allies incur a penalty listed below, as <strong>Blinded</strong> characters can still rely on their other senses to get a general idea of the target's position.",
+							"A <strong>Blinded</strong> character incurs a -2 penalty on all checks.",
+							"Characters receive one advantage die when making ability checks targeting a <strong>Blinded</strong> enemy."
+						  ]
+						]
+          }
+        },
+        {
+          "id": "brink-of-death",
+          "name": "Brink of Death",
+          "icon": "assets/brink-of-death.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A character on the <strong>Brink of Death</strong> incurrs a -5 penalty to all checks.",
+							"If a character on the <strong>Brink of Death </strong>is the target of another effect that inflicts Weakness, they are instead afflicted with <strong>Comatose</strong>.",
+							"<strong>Brink of Death</strong> does not wear off at the end of a phase, and can only be removed by completing a rest, or by effects that specifically remove it."
+					    ]
+						]
+          }
+        },
+        {
+          "id": "comatose",
+          "name": "Comatose",
+          "icon": "assets/comatose.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Comatose</strong> character is treated as if they were <strong>Knocked Out</strong> for gameplay purposes.",
+							"<strong>Comatose</strong> can only be removed by spending one sun — a full day in-game — in a location where appropriate medical treatment is available, as determined by the GM.",
+							"A <strong>Comatose</strong> character has all other enhancements and enfeeblements removed. They cannot be granted any enhancements or afflicted with further enfeeblements other than <strong>Death</strong>."
+						  ]
+						]
+          }
+        },
+        {
+          "id": "damage-over-time",
+          "name": "Damage over Time (DOT)",
+          "icon": "assets/dot.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"Damage over time effects always specify the amount of damage they inflict using a set of parentheses, such as <strong>DOT (3)</strong> or <strong>DOT (User's</strong><blue>INT<blue></strong>",
+							"An adventurer or ally afflicted with a damage over time effect takes damage specified by the <strong>DOT</strong> at the end of each round's [Adventurer Step]",
+							"An enemy afflicted with a damage over time effect takes damage specified by the <strong>DOT</strong> at the end of each round's [EnemyStep]"
+							]
+						]
+          }
+        },
+        {
+          "id": "death",
+          "name": "Death",
+          "icon": "assets/death.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"As the name implies, a <strong>Dead</strong> character has died and can no longer participate in the game.",
+							"Unless otherwise specified, <strong>Death</strong> cannot be reversed or removed.",
+							"Characters who have been <strong>Knocked Out</strong> or are <strong>Comatose</strong> will not <strong>Die</strong>, unless the scenario or the GM rules otherwise."
+							]
+						]
+          }
+        },
+        {
+          "id": "enmity",
+          "name": "Enmity",
+          "icon": "assets/enmity.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"Characters that have been afflicted with <strong>Enmity</strong> incur a -5 penalty on all ability checks that do not target the character that inflicted it.",
+							"<strong>Enmity</strong> is removed at the end of the phase, at the end of the afflicted character’s turn, or when the character that inflicted it is <strong>Knocked Out</strong>."
+							]
+						]
+          }
+        },
+        {
+          "id": "heavy",
+          "name": "Heavy",
+          "icon": "assets/heavy.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Heavy</strong> character has their <strong><blue>Speed</blue></strong> halved (rounded up, typically 3 squares) and cannot be affected by effects which would add to their <strong><blue>Speed</blue></strong>.",
+							"Ability checks targeting a <strong>Heavy</strong> character automatically result in direct hits.",
+							"<strong>Heavy</strong> is removed at the end of the <strong>Heavy</strong> character's turn, unless otherwise stated."
+							]
+						]
+          }
+        },
+        {
+          "id": "knocked-out",
+          "name": "Knocked Out",
+          "icon": "assets/knocked-out.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A character that has been <strong>Knocked Out</strong> is unconscious and cannot perceive their surroundings. They cannot use abilities or perform other actions during their turn.",
+							"A character that has been <strong>Knocked Out</strong> is treated as both <strong>Prone</strong> and <strong>Stunned</strong>.",
+							"A character that has been <strong>Knocked Out</strong> cannot recover HP or MP.",
+							"<strong>Knocked Out</strong> does not wear off at the end of a phase, and can only be removed by effects that specifically remove it.",
+							"A character that has been <strong>Knocked Out</strong> has all other enhancements and enfeeblements removed. They cannot be granted any enhancements or afflicted with further enfeeblements other than <strong>Comatose</strong>."
+							]
+						]
+          }
+        },
+        {
+          "id": "paralysis",
+          "name": "Paralysis",
+          "icon": "assets/paralysis.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"If a <strong>Paralyzed</strong> character uses a <em>primary</em> ability and rolls a 5 or lower for its ability check, <strong>Paralysis</strong> interrupts the ability, negating it completely. Do not resolve any of its effects, including its base effect. If the interrupted ability has a limited number of uses, none of its uses are consumed and the character may attempt to use the ability again on a later turn.",
+							"<strong>Paralysis</strong> is removed at the end of the <strong>Paralyzed</strong> creature's turn."
+							]
+						]
+          }
+        },
+        {
+          "id": "petrify",
+          "name": "Petrify",
+          "icon": "assets/petrified.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Petrified</strong> character cannot act during their turn or use <em>instant</em> abilities.",
+							"Characters receive one advantage die when makingg ability checks targeting a <strong>Petrified</strong> enemy.",
+							"A <strong>Petrified</strong> character incurs a -5 penalty on all checks.",
+							"<strong>Petrify</strong> is removed at the end of the <strong>Petrified</strong> character's next turn."
+							]
+						]
+          }
+        },
+        {
+          "id": "prone",
+          "name": "Prone",
+          "icon": "assets/prone.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Prone</strong> character cannot take a standard movement on their turn less they spend half their <strong><blue>Speed</blue></strong> (rounded up, typically 3 squares) to get back on their feet. Standing up in this fashion removes <strong>Proney</strong>.",
+							"A <strong>Prone</strong> character incurs a -2 penalty on all checks.",
+							"Characters receive one advantage die when making ability checks targeting a <strong>Prone</strong> enemy.",
+							"<strong>Prone</strong> does not stack, even if it is inflicted multiple times. In these case, only a single instance of the effect remains."
+							]
+						]
+          }
+        },
+        {
+          "id": "silence",
+          "name": "Silence",
+          "icon": "assets/silence.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Silenced</strong> character cannot use <em>invoked</em> abilities.",
+							"<strong>Silence</strong> is removed at the end of the <strong>Silenced</strong> character's turn unless specified otherwise."
+							]
+						]
+          }
+        },
+        {
+          "id": "sleep",
+          "name": "Sleep",
+          "icon": "assets/sleep.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Sleeping</strong> character incurs a -3 penalty on all checks.",
+							"<strong>Sleep</strong> is removed when a <strong>Sleeping</strong> character takes damage.",
+							"Characters may use a primary action to wake a <strong>Sleeping</strong> character in an adjacent square. Being roused in this fashion removed <strong>Sleep</strong>."
+							]
+						]
+          }
+        },
+        {
+          "id": "slow",
+          "name": "Slow",
+          "icon": "assets/slow.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Slowed</strong> character has their <strong><blue>Speed</blue></strong> halved (rounded up, typically 3 squares) and cannot be affected by effects which would add to their <strong><blue>Speed</blue></strong>.",
+							"A <strong>Slowed</strong> character incurs a -2 penalty on all checks."
+							]
+						]
+          }
+        },
+        {
+          "id": "stun",
+          "name": "Stun",
+          "icon": "assets/stun.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+						  [
+							"A <strong>Stunned</strong> character cannot act during their turn or use <em>instant</em> abilities.",
+							"Any and all markers for which a <strong>Stunned</strong> character is the creator are removed.",
+							"Characters receive one advantage die when making ability checks targeting a <strong>Stunned</strong> enemy.",
+							"A <strong>Stunned</strong> character incurs a -5 penalty on all checks.",
+							"<strong>Stun </strong>can only be removed via the means detailed in the description of the effect that inflicted it. It cannot be removed by effects that remove enfeeblements.",
+							"A character that has been <strong>Stunned</strong> cannot be <strong>Stunned</strong> again in the same encounter."
+							]
+						]
+          }
+        },
+        {
+          "id": "weakness",
+          "name": "Weakness",
+          "icon": "assets/weakness.png",
+          "tooltip": {
+            "paragraphs": [],
+            "lists": [
+							[
+							"A <strong>Weakened</strong> character incurs a -2 penalty on all checks.",
+							"If a character afflicted with <strong>Weakness</strong> is the target of another effect that inflicts this enfeeblement, they are instead afflicted with <strong>Brink of Death</strong>.",
+							"<strong>Weakness</strong> does not wear off at the end of a phase, and can only be removed by completing a rest or by effects that specifically remove it."
+							]
+						]
+          }
+        }
+      ]
+    },
+    {
+      "id": "primary-attributes",
+      "name": "Primary Attributes",
+      "entries": [
+        {
+          "id": "strength",
+          "name": "Strength",
+          "icon": "assets/strength.png",
+          "tooltip": {
+            "paragraphs": [
+              "Strength — or <strong><blue>STR</blue></strong> — represents your adventurer’s athleticism, physical fitness, and the raw power they can bring to bear. This attribute is used when employing physical force to overcome a situation, such as lifting a boulder, pushing or pulling a laden cart, or kicking down a door."
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "dexterity",
+          "name": "Dexterity",
+          "icon": "assets/dexterity.png",
+          "tooltip": {
+            "paragraphs": [
+              "Dexterity — or <strong><blue>DEX</blue></strong> — represents your adventurer’s coordination, agility, reflexes, and balance. This attribute is used when sneaking, performing precision tasks, or traversing narrow ledges."
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "vitality",
+          "name": "Vitality",
+          "icon": "assets/vitality.png",
+          "tooltip": {
+            "paragraphs": [
+              "Vitality — or <strong><blue>VIT</blue></strong> — represents your adventurer’s hardiness, physical health, and endurance. This attribute is used when holding one’s breath, performing manual labor for long periods of time, or attempting to survive in a desert without water."
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "intelligence",
+          "name": "Intelligence",
+          "icon": "assets/intelligence.png",
+          "tooltip": {
+            "paragraphs": [
+              "Intelligence — or <strong><blue>INT</blue></strong> — represents your adventurer’s sharpness of mind, ability to recall information, and reasoning skills. This attribute is used when attempting to reach a logical conclusion, trying to remember a relevant fact, or searching for hidden objects."
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "mind",
+          "name": "Mind",
+          "icon": "assets/mind.png",
+          "tooltip": {
+            "paragraphs": [
+              "Mind — or <strong><blue>MND</blue></strong> — represents your adventurer’s perceptiveness, instincts, and intuition. This attribute is used when discerning someone’s intent from their gestures, understanding how another person is feeling, noticing when something is out of place, or treating another character’s wounds."
+            ],
+            "lists": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "secondary-attributes",
+      "name": "Secondary Attributes",
+      "entries": [
+        {
+          "id": "defense",
+          "name": "Defense",
+          "icon": "assets/defense.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p><strong><blue>Defense</blue></strong> represents your adventurer’s ability to withstand physical forces.</p><p>This attribute is often used as the CR for the ability checks an enemy makes when attacking your adventurer with a <em>physical</em> ability.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "magic-defense",
+          "name": "Magic Defense",
+          "icon": "assets/magic-defense.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p><strong><blue>Magic Defense</blue></strong> represents your adventurer’s ability to withstand magical forces.</p><p>This attribute is often used as the CR for the ability checks an enemy makes when attacking your adventurer with a <em>magic</em> ability.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "speed",
+          "name": "Speed",
+          "icon": "assets/speed.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p><strong><blue>Speed</blue></strong> represents the total number of squares your adventurer can move on their turn when performing a standard movement action.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "vigilance",
+          "name": "Vigilance",
+          "icon": "assets/vigilance.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p><strong><blue>Vigilance</blue></strong> is a passive attribute that represents how aware your adventurer is of their surroundings at any given time.</p><p>This attribute is typically not used to make checks; rather, the GM will use an adventurer’s <blue>Vigilance</blue></strong> to determine what they notice about their environment. Be sure to tell the GM your adventurer’s <blue>Vigilance</blue></strong> when starting a new adventure.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "max-hp",
+          "name": "Max HP",
+          "icon": "assets/max-hp.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p><strong><blue>Max HP</blue></strong> determines how many hit points — or HP — your adventurer has. If their HP ever falls to zero, they lose consciousness and are unable to continue participating in an encounter.</p><p>As HP is not a measure of wellness or physique, an adventurer’s <strong><blue>VIT</blue></strong> does not influence their <strong><blue>Max HP</blue></strong>.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "max-mp",
+          "name": "Max MP",
+          "icon": "assets/max-mp.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p><strong><blue>Max MP</blue></strong> determines how many magic points — or MP — your adventurer has. Some abilities require adventurers to spend MP to use them. Unless otherwise stated, adventurers have a <strong><blue>Max MP</blue></strong> of 5.</p>"
+            ],
+            "lists": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "general-rules",
+      "name": "General Rules",
+      "entries": [
+        {
+          "id": "checks",
+          "name": "Checks",
+          "icon": "assets/checks.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>When a character takes an action where the outcome is uncertain, the player controlling that character makes a check to determine success or failure.</p><p>To make a check, roll a d20 and add the appropriate <strong>value</strong> — usually a primary attribute. If this <strong>total</strong> equals or exceeds the check’s <strong>CR</strong>, your character succeeds. If <strong>the</strong> total is lower than the check’s <strong>CR</strong>, their attempt ends in failure.</p><p>Before making a check, the GM will determine the type of check required and assign it a CR.</p>    <p style=\"text-align: center;\"><span style=\"font-size: large\"><strong>d20 ＋ Value ＝ Total</strong></span></p><p style=\"text-align: center;\">Total ≧ CR ⇒ Success</p><p style=\"text-align: center;\">Total ＜ CR ⇒ Failure</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "advantage-dice-and-penalties",
+          "name": "Advantage Dice and Penalties",
+          "icon": "assets/advantage-dice-and-penalties.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>Some traits, abilities, enhancements, enfeeblements, and situations will grant you advantage dice or impose penalties when making certain checks.</p><p></p><p><strong>Making Checks with Advantage Dice</strong><br>Roll one extra d20 for each advantage die, then choose which result to use for the check. For example, if you have one advantage die when making a check, roll a total of two d20s, then choose which of the results to use.</p><p></p><p><strong>Making Checks with Penalties</strong><br>Subtract the largest applicable penalty from the total for the check.</p>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "encounter-basics",
+          "name": "Encounter Basics",
+          "icon": "assets/encounter-basics.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>Encounters play out over a series of rounds. Each round, all characters participating in the encounter take a single turn, beginning with the adventurers and their allies.<h3>Encounter Overview</h3><div style=column-count:2><p><span style=font-size:large><strong>Starting an Encounter</strong></span><ol><li><p><strong>Surprise:</strong> The GM determines whether any of the characters participating in the encounter have been caught by surprise.<li><p><strong>Positioning:</strong> The GM determines the positions of all enemies participating in the encounter. Players do the same for their adventurers.<li><p><strong>Turn Order:</strong> Players determine the order in which their adventurers and allies take their turns.</ol><p><span style=font-size:large><strong>Round Overview</strong></span><ol><li><p><span class=ffxiv-text-note><strong>[Adventurer Step]:</strong></span> Each adventurer and allied character participating in the encounter takes a turn, following the turn order.<li><p><span class=ffxiv-text-note><strong>[Enemy Step]:</strong></span> Each enemy participating in the encounter takes a turn.<li><p><span class=ffxiv-text-note><strong>[End of Round Step]:</strong></span> The current round ends, a new round begins, and the order of play starts over at the <span class=ffxiv-text-note><strong>[Adventurer Step]</strong></span>.</ol></div>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "adventurer-turns",
+          "name": "Adventurer Turns",
+          "icon": "assets/adventurer-turns.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>Adventurer Turns Each turn, an adventurer can perform one of each of the following:<div style=column-count:3><p style=text-align:center><strong>A Primary action</strong><p style=text-align:center><strong>A Secondary Action</strong><p style=text-align:center><strong>Standard Movement<br></strong><em><strong>or</strong></em><strong> Focus</strong></div><ul><li><p><strong>Primary Action:</strong> Use a primary or secondary ability.<li><p><strong>Secondary Action:</strong> Use a secondary ability.<li><p><strong>Standard Movement:</strong> Move a number of squares on the map up to your character’s <span class=ffxiv-abi>&Rule[Speed]</span>.<p><span class=ffxiv-text-note><strong>Example:</strong> An adventurer with a </span><span class=ffxiv-abi>&Rule[Speed]</span><span class=ffxiv-text-note> of five squares could move two squares, perform a primary action, move one square, perform a secondary action, then use the last two squares of their standard movement to move again before ending their turn.</span><li><p><strong>Focus:</strong> Forgo all standard movement to perform an additional secondary action, for a total of two secondary actions in a single turn.</ul><div class=ffxiv-bg-light-blue><p><em><strong>Instant Abilities:</strong></em> Instant abilities may be used during any character’s turn, provided their trigger conditions are met. However, a character cannot use multiple <em>instant</em> abilities on a given turn.</div>"
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "phases",
+          "name": "Phases",
+          "icon": "assets/phases.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>Some encounters consist of multiple phases. The start of a new phase may see enemy reinforcements take the field, or have a powerful foe adopt a new form.<p>When a phase ends and a new one begins, remove enhancements and enfeeblements from all characters. Adventurers with abilities that have limited uses per phase have those uses restored.<p>Turn order, HP, MP, barriers, items consumed, and benefits gained from traits are carried over to the new phase."
+            ],
+            "lists": []
+          }
+        },
+        {
+          "id": "ability-checks",
+          "name": "Ability Checks",
+          "icon": "assets/ability-checks.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>Ability Checks Many abilities require players to make an ability check when used during an encounter. These ability checks can have many purposes, but they are primarily used to determine if an ability scores a direct hit.<ul><li><p><strong>When using an ability with a check field</strong>, make an ability check using the indicated value. The ability check’s CR will be listed in the CR field, and is typically the target’s <span class=ffxiv-abi>Defense</span> or <span class=ffxiv-abi>Magic Defense</span>.<br>If the ability check’s total is lower than the CR, simply resolve the ability’s base effect. If this total equals or exceeds the CR, resolve the effect described in its direct hit field as well.<li><p><strong>When using an ability without a check field</strong>, simply resolve its base effect without making an ability check.<li><p><strong>Criticals:</strong> If the d20 rolled for an ability check lands on a 20, that ability is a critical. Criticals double the number of dice rolled to determine the amount of damage dealt or HP healed by the ability’s effects.<li><p><strong>Abilities with Multiple Targets:</strong> When using an ability that affects multiple targets, make a single ability check and use the resulting total to determine if the ability scores a direct hit on each target. If the ability deals damage or restores HP to multiple targets, roll the dice once. Each target suffers the same amount of damage or recovers the same amount of HP.<p>If you have been granted advantage dice on ability checks against some targets but not others, roll the advantage dice for those targets separately.</ul>"
+            ],
+            "lists": []
+          }
+        },
+        {					
+          "id": "limit-break",
+          "name": "Limit Breaks",
+          "icon": "assets/limit-break.png",
+          "tooltip": {
+            "paragraphs": [
+              "<p>During an encounter, the GM will inform players if and when limit breaks become available, after which the party can use up to three limit breaks. However, each adventurer can only use one limit break per encounter.</p>"
+            ],
+            "lists": []
+          }
+        }
+      ]
+    }
+  ]
+}

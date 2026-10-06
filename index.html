@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e7" id="theme-color">
+  <title>FFXIV TTRPG — Quick Reference</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theme-switcher" aria-label="Theme settings">
+    <span class="theme-label" aria-hidden="true">Light</span>
+    <label class="theme-toggle">
+      <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+      <span class="theme-slider" aria-hidden="true"></span>
+    </label>
+    <span class="theme-label" aria-hidden="true">Dark</span>
+  </div>
+
+  <main class="quick-reference" id="quick-reference"></main>
+
+  <div class="rule-overlay" id="rule-overlay" hidden>
+    <section class="rule-tooltip" role="dialog" aria-modal="true"
+      aria-labelledby="rule-tooltip-title" tabindex="-1">
+      <div class="tooltip-heading">
+        <h1 id="rule-tooltip-title"></h1>
+        <div class="tooltip-entry-icon" id="tooltip-entry-icon"></div>
+      </div>
+      <div class="tooltip-rule" aria-hidden="true"></div>
+      <div class="tooltip-content" id="tooltip-content"></div>
+    </section>
+  </div>
+
+  <script src="quickref.js"></script>
+</body>
+</html>
