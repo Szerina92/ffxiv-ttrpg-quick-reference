@@ -131,6 +131,7 @@ function renderTooltip(entry) {
 
 function showRule(result) {
   renderTooltip(result.entry);
+  themeToggle.closest(".theme-switcher")?.setAttribute("hidden", "");
   overlay.hidden = false;
   document.body.classList.add("modal-open");
   tooltip.focus();
@@ -160,16 +161,18 @@ function openRule(button) {
 function hideRule() {
   overlay.hidden = true;
   document.body.classList.remove("modal-open");
+  themeToggle.closest(".theme-switcher")?.removeAttribute("hidden");
   lastTrigger?.focus();
   lastTrigger = null;
 }
 
 function closeRule() {
-  if (history.state?.quickrefModal) {
-    history.back();
-  } else {
-    hideRule();
-  }
+  if (overlay.hidden) return;
+
+  const hasModalHistory = history.state?.quickrefModal;
+  hideRule();
+
+  if (hasModalHistory) history.back();
 }
 
 function createLoadError() {
