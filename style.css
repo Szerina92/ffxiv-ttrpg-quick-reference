@@ -55,6 +55,7 @@ body {
 
 body.modal-open {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .theme-switcher {
@@ -216,6 +217,10 @@ body.modal-open {
   flex: 0 0 48px;
 }
 
+.tooltip-entry-icon {
+  margin-right: 36px;
+}
+
 .rule-icon {
   overflow: hidden;
 }
@@ -248,6 +253,7 @@ body.modal-open {
 }
 
 .rule-tooltip {
+  position: relative;
   width: min(860px, 100%);
   max-height: min(700px, calc(100vh - 48px));
   overflow: hidden;
@@ -256,6 +262,33 @@ body.modal-open {
   border-radius: 7px;
   background: var(--tooltip-paper);
   box-shadow: 0 8px 28px rgba(0, 0, 0, .24);
+}
+
+.tooltip-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font: 400 1.4rem/1 Roboto, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.tooltip-close:hover,
+.tooltip-close:focus-visible {
+  background: color-mix(in srgb, var(--heading) 9%, transparent);
+  outline: none;
+}
+
+.tooltip-close:focus-visible {
+  outline: 2px solid var(--accent-line);
+  outline-offset: 2px;
 }
 
 .tooltip-heading {
@@ -311,7 +344,7 @@ body.modal-open {
 }
 
 .ability-blue {
-  color: var(--heading);
+  color: #2b628d;
 }
 
 @media (max-width: 620px) {
@@ -335,6 +368,18 @@ body.modal-open {
 
   .rule-overlay {
     padding: 12px;
+  }
+
+  .tooltip-close {
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.55rem;
+  }
+
+  .tooltip-entry-icon {
+    margin-right: 42px;
   }
 
   .rule-tooltip {

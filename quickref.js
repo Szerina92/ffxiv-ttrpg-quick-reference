@@ -8,6 +8,7 @@ const tooltipContent = $("tooltip-content");
 const tooltipEntryIcon = $("tooltip-entry-icon");
 const themeToggle = $("theme-toggle");
 const themeColor = $("theme-color");
+const closeButton = $("rule-tooltip-close");
 
 const THEME_KEY = "ffxiv-quickref-theme";
 let rulesData;
@@ -128,22 +129,47 @@ function renderTooltip(entry) {
   }
 }
 
-function openRule(button) {
-  const result = findEntry(button.dataset.categoryId, button.dataset.entryId);
-  if (!result) return;
-
-  lastTrigger = button;
+function showRule(result) {
   renderTooltip(result.entry);
   overlay.hidden = false;
   document.body.classList.add("modal-open");
   tooltip.focus();
 }
 
-function closeRule() {
+function openRule(button) {
+  const result = findEntry(button.dataset.categoryId, button.dataset.entryId);
+  if (!result) return;
+
+  lastTrigger = button;
+  const state = {
+    ...(history.state || {}),
+    quickrefModal: true,
+    categoryId: button.dataset.categoryId,
+    entryId: button.dataset.entryId
+  };
+
+  if (history.state?.quickrefModal) {
+    history.replaceState(state, "", location.href);
+  } else {
+    history.pushState(state, "", location.href);
+  }
+
+  showRule(result);
+}
+
+function hideRule() {
   overlay.hidden = true;
   document.body.classList.remove("modal-open");
   lastTrigger?.focus();
   lastTrigger = null;
+}
+
+function closeRule() {
+  if (history.state?.quickrefModal) {
+    history.back();
+  } else {
+    hideRule();
+  }
 }
 
 function createLoadError() {
@@ -172,8 +198,25 @@ overlay.addEventListener("click", event => {
   if (event.target === overlay) closeRule();
 });
 
+closeButton.addEventListener("click", closeRule);
+
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && !overlay.hidden) closeRule();
+});
+
+window.addEventListener("popstate", event => {
+  if (event.state?.quickrefModal) {
+    const result = findEntry(event.state.categoryId, event.state.entryId);
+    if (result) {
+      lastTrigger = document.querySelector(
+        `[data-category-id="${CSS.escape(event.state.categoryId)}"][data-entry-id="${CSS.escape(event.state.entryId)}"]`
+      );
+      showRule(result);
+      return;
+    }
+  }
+
+  hideRule();
 });
 
 async function initialize() {
